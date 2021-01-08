@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>React Potatoe</title>
+    <title>Best Pets to Own</title>
   </head>
   <body>
+    <h1>Best Pets To Own</h1>
     <div id="root"></div>
 
     <!--React-->
@@ -27,15 +29,42 @@
       function Pets(props) {
         return (
           <div>
-            <h1>Best Pets</h1>
+            <div className="title">
+              <h2>{props.type}</h2>
+              <img src={props.image} />
+            </div>
+            <ol className="list">
+              <h2 className="heading">What Makes {props.type} Good Pets?</h2>
+              <li>{props.whyGreat1}</li>
+              <li>{props.whyGreat2}</li>
+              <li>{props.whyGreat3}</li>
+            </ol>
           </div>
         );
       }
       const element = (
         <div>
-          <Pets pet="Dogs" />
-          <Pets pet="Cats" />
-          <Pets pet="Birds" />
+          <Pets
+            type="Dogs"
+            image="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/My_new_puppy%2C_Link.jpg/800px-My_new_puppy%2C_Link.jpg"
+            whyGreat1="They Watch Your Back"
+            whyGreat2="Dogs Help You Make Friends"
+            whyGreat3="Help With Loneliness"
+          />
+          <Pets
+            type="Cats"
+            image="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Tired_20-year-old_cat.jpg/1280px-Tired_20-year-old_cat.jpg"
+            whyGreat1="They're Quite"
+            whyGreat2="Low Maintenance"
+            whyGreat3="Ideal for Apartment Pets"
+          />
+          <Pets
+            type="Birds"
+            image="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Mulga_Parrot_male_1_-_Patchewollock.jpg/800px-Mulga_Parrot_male_1_-_Patchewollock.jpg"
+            whyGreat1="Cheap To Feed"
+            whyGreat2="Social With Humans and Other Birds"
+            whyGreat3="Cheap to Feed"
+          />
         </div>
       );
       ReactDOM.render(element, document.getElementById("root"));
